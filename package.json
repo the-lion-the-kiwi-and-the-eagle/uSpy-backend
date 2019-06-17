@@ -1,0 +1,19 @@
+{
+  "name": "uspy_backend",
+  "version": "1.0.0",
+  "description": "Dependencies for uSpy backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samualmoot/uSpy-backend.git"
+  },
+  "author": "the-lion-the-kiwi-and-the-eagle",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samualmoot/uSpy-backend/issues"
+  },
+  "homepage": "https://github.com/samualmoot/uSpy-backend#readme"
+}
