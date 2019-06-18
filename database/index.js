@@ -1,6 +1,6 @@
 // this is where the database connection will happen
 const Sequelize = require('sequelize');
-    require('dotenv').config();
+require('dotenv').config();
 
     const host = process.env.DB_HOST || 'localhost';
     const user = process.env.DB_USER || 'root';
@@ -39,7 +39,7 @@ const Users = connection.define('users', {
  * scoreboard user_id (foreign key pointing to Classes table ID) and friend_id (foreign key pointing to Classes table ID) 
  */
 
-const Scoreboard = connection.define('scoreboard', {
+const Friends = connection.define('friends', {
     user_id: {
         type: Sequelize.INTEGER,
         references: { model: 'users', key: 'id' },
@@ -51,7 +51,7 @@ const Scoreboard = connection.define('scoreboard', {
   
 });
 
-const Friends = connection.define('friends', {
+const Scoreboard = connection.define('scoreboard', {
   win_count: Sequelize.INTEGER,
 });
 
