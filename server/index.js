@@ -31,7 +31,7 @@ app.post('/image', upload.single('image'), (req, res, next) => {
       });
 })
 
-app.listen(3000, '127.0.0.1', () => {
+app.listen(8080, '127.0.0.1', () => {
     console.log('Server is connected');
 });
 
