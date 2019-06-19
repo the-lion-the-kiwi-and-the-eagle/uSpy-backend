@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "uspy-243820",
+  "private_key_id": "144d4b3db6d6e4ac377d1d11268c4a88bead5a11",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDTFGnZ4cKSyFKp\nLZHCxVzPWHjjnSukkg1idOWb3qnDRKhmqz4o9uLMiST2/0AN5Adee0XTAVeK1w/b\novRtL/NMe9k6FXCWtJMrGBMysBOLacySEyaqYDKmqjhnOF0TDA/2eKKm6HPTcLpV\nckh+bLz7j0oBA/YcnY5Yptd89MJzX1rljMNGzQHvKbl1tBvg+S1R16lV9q/yEvsS\n/WgaIHqrEN37XA2s0svvn2G6ofsnvG6Ch3I3OauhfounU2WQ/ACvpA26Vnjf7uzg\nAeYjGekrYHKS/blRNFSBDmYvRWLoABNhhaAb8u6HWDqgW3OjGVyuV6YdvZyYWGB8\neX7DFBKXAgMBAAECggEAGWYlbpBZ52uvdqgDGBrDljehJFJvQ/hHIAfM8TqT1ulW\nEjSc4DUFCXOfPRFt1b4QnO/ccQ2CSTSjtdwf6VuRvSxR8UlPKPNFmjPla34AfBAZ\nC6K+TlYRAjkNXG5N1NLowNG3ULo75b90zH9Z9cyD2Qle8ExXuw3CaSx6VZDmLRee\nJpnuXpjkViI9Ym0csfZ3bBQa405INzYT24ap7lPH0UKlYqhD7AV0bHQbbn3Hqsb/\nqHoo1O2ZmwFvNWCDLRbypcwbfWt+97FtpbJHdQnz/eU2Et9eFc1Dpir8E3Bo1fx0\nrClAXULNpGuaobbbezB4hPFrBLk0l4gxY0u6K1vZgQKBgQD8xJVdoU54UOpaW/a6\n9YZZxr+2L24rvM1nvQzMLZQ2jpmKUnuRrwLccChR0ey0j9p/BPN7bGg90Xi8Ij4U\n0Q2D1swT8314cfZKt+iYOgvogiiX0QuConCjTTrg90D68LfO6OGupcWHywxDncLk\nYZnzYTxEdOcTCg70hO17sLbndwKBgQDVx13yhFdsG9vr93Fx1I6iYJU5WpC2aWWt\nxes86AM0TPM/fZVIPJ15Zuf4hDrBvP+G+l6/cNFYwdXS7z64QN51rluqxzSImqB8\nh0gT9E5PWvG8f+90pfSp4mO2F/5LUjNXFbJniz15MxHB/QdpukKV/R8EvzredDnw\nj5DE1pE14QKBgBVNL9VDKczD7OwOgf2BgYABWtisqJkxARJ0AScX1DzAybm5d8Zw\nPEp9fThf+5W/5cb8kNRe723+QDGCpT6123C34lzwESvcVsg3NXfWtHg0t90Lde/d\nZqasdIDO9X/wV10tjQ9d0wa9mtv76Je8je/Pyvdt7qdRGq+KoETjQJbDAoGANIVP\nknZrF/dcN4PKTkH/bOs3niie5wHL5j56xbLmnqHNHSsYUu/5bEsY8Jhj6xco3BuE\nzZnFBP5SLwlyKkhdnyHgCXv5bxo2FYIS9jwORTa9rybrSIhBLL+e6azJX+3pCRse\ngovV5YHjefpVKOeG1lyik0L8Do0VcwGCeqmQcWECgYEA6PojVuUM1q/K2SHrqOcq\n4jW0wJ6FUMqj6ppihQ9u5wDwDbbzDB1H0LieQnOEKX3ZuqAHkHw6vdjU+oQP2k2e\nOT7edLqZw8iVDZtd5M11oWizKHkbNvrdE0Joj/chpkFVsPiFRKgzXtkC0DfVwHfO\n0/fCv3smS5pa9CL3kXcZufE=\n-----END PRIVATE KEY-----\n",
+  "client_email": "google-api-uspy@uspy-243820.iam.gserviceaccount.com",
+  "client_id": "110434289975519212130",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/google-api-uspy%40uspy-243820.iam.gserviceaccount.com"
+}

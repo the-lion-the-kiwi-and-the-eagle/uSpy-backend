@@ -2,16 +2,16 @@
 const Sequelize = require('sequelize');
 require('dotenv').config();
 
-const host = process.env.DB_HOST || 'localhost';
-const user = process.env.DB_USER || 'root';
-const port = process.env.DB_PORT || 3306;
-const password = process.env.DB_PASSWORD || '';
-const database = process.env.DB_DATABASE || 'uSpy';
+    const host = process.env.DB_HOST || 'localhost';
+    const user = process.env.DB_USER || 'root';
+    const port = process.env.DB_PORT || 3306;
+    const password = process.env.DB_PASSWORD || '';
+    const database = process.env.DB_DATABASE || 'uSpy';
 
-const connection = new Sequelize(database, user, password, {
-  dialect: 'mysql',
-  host,
-  port,
+    const connection = new Sequelize(database, user, password, {
+    dialect: 'mysql',
+    host,
+    port,
 });
 /**
  * Users is sequelize model that links to users table in our database
@@ -39,7 +39,7 @@ const Users = connection.define('users', {
  * scoreboard user_id (foreign key pointing to Classes table ID) and friend_id (foreign key pointing to Classes table ID) 
  */
 
-const Scoreboard = connection.define('scoreboard', {
+const Friends = connection.define('friends', {
     user_id: {
         type: Sequelize.INTEGER,
         references: { model: 'users', key: 'id' },
@@ -51,7 +51,7 @@ const Scoreboard = connection.define('scoreboard', {
   
 });
 
-const Friends = connection.define('friends', {
+const Scoreboard = connection.define('scoreboard', {
   win_count: Sequelize.INTEGER,
 });
 
