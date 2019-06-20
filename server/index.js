@@ -17,7 +17,6 @@ app.get('/', function (req, res) {
 })
 
 app.post('/user', (req, res) => {
-    // res.send('POST handler for /api/user route.');
     const user = req.body;
     console.log(req.body);
     console.log(helpers)
@@ -29,7 +28,46 @@ app.post('/user', (req, res) => {
     //       console.log(err);
     //   });
       })
+
+      app.get('/user', (req, res) => {
+        const id = req.body;
+        console.log(req.body.id);
+        console.log(helpers)
+        helpers
+          .getUser(id)
+          .then((getUser) => {
+              console.log(getUser);
+              res.send(getUser);
+          }).catch((err) => {
+              console.log(err);
+          });
+          })
      
+      app.post('/score', (req, res) => {
+        const score = req.body;
+        console.log(req.body);
+        helpers
+          .saveScore(score)
+          .then((savedScore) => {
+              console.log(savedScore);
+          }).catch((err) => {
+              console.log(err);
+          });
+          })
+
+          app.get('/score', (req, res) => {
+            const user = req.body;
+            console.log(req.body);
+            helpers
+              .getScore(user.user_id)
+              .then((score) => {
+                  console.log(score);
+                  res.send(score);
+              }).catch((err) => {
+                  console.log(err);
+              });
+              })
+          
 
 // Creates a client
 const client = new vision.ImageAnnotatorClient({

@@ -39,23 +39,33 @@ const Users = connection.define('users', {
  * scoreboard user_id (foreign key pointing to Classes table ID) and friend_id (foreign key pointing to Classes table ID) 
  */
 
-// const Friends = connection.define('friends', {
-//     user_id: {
-//         type: Sequelize.INTEGER,
-//         references: { model: 'users', key: 'idUsers' },
-//       },
-//       friend_id: {
-//         type: Sequelize.INTEGER,
-//         references: { model: 'users', key: 'id' },
-//       }
+const Friends = connection.define('friends', {
+    user_id: {
+        type: Sequelize.INTEGER,
+        references: { model: 'users', key: 'id' },
+      },
+      friend_id: {
+        type: Sequelize.INTEGER,
+        references: { model: 'users', key: 'id' },
+      }
   
-// });
-
-const Scoreboard = connection.define('scoreboard', {
-  win_count: Sequelize.INTEGER,
 });
 
-connection.sync({ force: true })
+const Scoreboard = connection.define('scoreboard', {
+  user_id: Sequelize.INTEGER,
+  // user_id: {
+  //           type: Sequelize.INTEGER,
+  //           references: { model: 'users', key: 'id' },
+  //         },
+  win_count: Sequelize.INTEGER
+});
+
+/**
+ * Function call that connects to database
+ * If databse connection is successful, success message logged to console
+ */
+
+connection.sync({ force: false })
   .then((result) => {
     console.log(result, 'connected to', database);
     // saveUser({
@@ -80,6 +90,6 @@ connection.sync({ force: true })
 
 module.exports.connection = connection;
 
-module.exports = { Users, Scoreboard };
+module.exports = { Users, Scoreboard, Friends };
 
 

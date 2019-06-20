@@ -24,8 +24,6 @@ const router = express.Router();
 //           console.log(err);
 //       });
     //   })
-     
-     
 module.exports = router;
 
 
