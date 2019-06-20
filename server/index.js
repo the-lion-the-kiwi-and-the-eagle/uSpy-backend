@@ -67,7 +67,32 @@ app.post('/user', (req, res) => {
                   console.log(err);
               });
               })
-          
+
+              app.post('/friends', (req, res) => {
+                const friend = req.body;
+                console.log(req.body);
+                helpers
+                  .addFriends(friend)
+                  .then((savedScore) => {
+                      console.log(savedScore);
+                  }).catch((err) => {
+                      console.log(err);
+                  });
+                  })
+              
+           app.get('/friends', (req, res) => {
+            const user = req.body;
+            console.log(req.body);
+            helpers
+              .getFriends(user)
+              .then((user) => {
+                  let friends = user.map(user => user.friend_id)
+                  console.log(friends);
+                  res.send(friends);
+              }).catch((err) => {
+                  console.log(err);
+              });
+              })
 
 // Creates a client
 const client = new vision.ImageAnnotatorClient({
