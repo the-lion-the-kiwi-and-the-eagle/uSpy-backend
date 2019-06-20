@@ -60,5 +60,9 @@ typings/
 # next.js build output
 .next
 
+#APIKey 
+.APIKey.json
+
+#APIKey 
 APIKey.json
 

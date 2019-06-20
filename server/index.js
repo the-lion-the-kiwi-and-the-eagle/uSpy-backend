@@ -1,13 +1,35 @@
+require('dotenv').config();
 const express = require('express');
+const db = require('../database/index')
 const app = express();
 const vision = require('@google-cloud/vision');
 const router = express.Router();
 const multer = require('multer');
 const upload = multer({dest: 'uploads/'})
+const userRoute = require('./user-route');
+const helpers = require('../database/db-helpers');
+const bodyParser = require('body-parser')
+
+app.use(bodyParser.json());
 
 app.get('/', function (req, res) {
     res.send('Hello World')
 })
+
+app.post('/user', (req, res) => {
+    // res.send('POST handler for /api/user route.');
+    const user = req.body;
+    console.log(req.body);
+    console.log(helpers)
+    helpers
+      .saveUser(user)
+    //   .then((savedUser) => {
+    //       console.log(savedUser);
+    //   }).catch((err) => {
+    //       console.log(err);
+    //   });
+      })
+     
 
 // Creates a client
 const client = new vision.ImageAnnotatorClient({
