@@ -1,6 +1,5 @@
 // this is where the database connection will happen
 const Sequelize = require('sequelize');
-require('dotenv').config();
 
     const host = process.env.DB_HOST || 'localhost';
     const user = process.env.DB_USER || 'root';
@@ -17,6 +16,7 @@ require('dotenv').config();
  * Users is sequelize model that links to users table in our database
  * users model has name (string), username (string), and an email (string)
  */
+
 
 const Users = connection.define('users', {
   name: {
@@ -52,13 +52,33 @@ const Friends = connection.define('friends', {
 });
 
 const Scoreboard = connection.define('scoreboard', {
-  win_count: Sequelize.INTEGER,
+  user_id: Sequelize.INTEGER,
+  // user_id: {
+  //           type: Sequelize.INTEGER,
+  //           references: { model: 'users', key: 'id' },
+  //         },
+  win_count: Sequelize.INTEGER
 });
+
+/**
+ * Function call that connects to database
+ * If databse connection is successful, success message logged to console
+ */
 
 connection.sync({ force: false })
   .then((result) => {
     console.log(result, 'connected to', database);
-    // Users.bulkCreate(dummyUserData)
+    // saveUser({
+    //   name: "Kalkidan",
+    //   userName: "kalkidan",
+    //   email:"Kalkdian@gmail.com"
+    // })
+    
+    // Users.create({
+    //   name: "Kalkidan",
+    //   username: "kalkidan",
+    //   email:"Kalkdian@gmail.com"
+    // })
     // .then(user => {
     //   console.log(user.dataValues);
     // })
@@ -69,7 +89,7 @@ connection.sync({ force: false })
 
 
 module.exports.connection = connection;
-module.exports.Scoreboard = Scoreboard;
-module.exports.Users = Users;
-module.exports.Friends = Friends;
+
+module.exports = { Users, Scoreboard, Friends };
+
 

@@ -1,13 +1,73 @@
+require('dotenv').config();
 const express = require('express');
+const db = require('../database/index')
 const app = express();
 const vision = require('@google-cloud/vision');
 const router = express.Router();
 const multer = require('multer');
 const upload = multer({dest: 'uploads/'})
+const userRoute = require('./user-route');
+const helpers = require('../database/db-helpers');
+const bodyParser = require('body-parser')
+
+app.use(bodyParser.json());
 
 app.get('/', function (req, res) {
     res.send('Hello World')
 })
+
+app.post('/user', (req, res) => {
+    const user = req.body;
+    console.log(req.body);
+    console.log(helpers)
+    helpers
+      .saveUser(user)
+    //   .then((savedUser) => {
+    //       console.log(savedUser);
+    //   }).catch((err) => {
+    //       console.log(err);
+    //   });
+      })
+
+      app.get('/user', (req, res) => {
+        const id = req.body;
+        console.log(req.body.id);
+        console.log(helpers)
+        helpers
+          .getUser(id)
+          .then((getUser) => {
+              console.log(getUser);
+              res.send(getUser);
+          }).catch((err) => {
+              console.log(err);
+          });
+          })
+     
+      app.post('/score', (req, res) => {
+        const score = req.body;
+        console.log(req.body);
+        helpers
+          .saveScore(score)
+          .then((savedScore) => {
+              console.log(savedScore);
+          }).catch((err) => {
+              console.log(err);
+          });
+          })
+
+          app.get('/score', (req, res) => {
+            const user = req.body;
+            console.log(req.body);
+            helpers
+              .getScore(user.user_id)
+              .then((score) => {
+                  console.log(score);
+                  res.send(score);
+              }).catch((err) => {
+                  console.log(err);
+              });
+              })
+          
 
 // Creates a client
 const client = new vision.ImageAnnotatorClient({
