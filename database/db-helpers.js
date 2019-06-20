@@ -3,7 +3,6 @@ const { Users, Friends, Scoreboard } = require('./index');
 
 
 const saveUser = user => {
-
   Users.create(user);
 }
 
@@ -20,4 +19,11 @@ const getScore = userId => {
   return Scoreboard.findAll({ where: { user_id: userId} })
 }
 
-module.exports = { saveUser, getUser, saveScore, getScore };
+const addFriends = friend => {
+  return Friends.create(friend);
+}
+const getFriends = userId => {
+  return Friends.findAll({ where: { user_id: userId.user_id} })
+}
+
+module.exports = { saveUser, getUser, saveScore, getScore, addFriends, getFriends };

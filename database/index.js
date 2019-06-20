@@ -1,5 +1,8 @@
 // this is where the database connection will happen
 const Sequelize = require('sequelize');
+const dummyUserData = require('./dummy-user-data');
+const dummyFriendData = require('./dummy-friend-data');
+
 
     const host = process.env.DB_HOST || 'localhost';
     const user = process.env.DB_USER || 'root';
@@ -68,6 +71,11 @@ const Scoreboard = connection.define('scoreboard', {
 connection.sync({ force: false })
   .then((result) => {
     console.log(result, 'connected to', database);
+    // Friends.bulkCreate(dummyFriendData)
+    // .then(user => {
+    //   console.log(user.dataValues);
+    // }
+
     // saveUser({
     //   name: "Kalkidan",
     //   userName: "kalkidan",
