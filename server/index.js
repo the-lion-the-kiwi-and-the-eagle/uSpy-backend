@@ -1,10 +1,14 @@
+
 const express = require('express');
 const app = express();
 const vision = require('@google-cloud/vision');
 const router = express.Router();
 const multer = require('multer');
-const upload = multer({dest: 'uploads/'})
+const upload = multer({dest: 'uploads/'});
+const bodyParser = require('body-parser');
 
+
+app.use(bodyParser.json({limit: '50mb'}));
 app.get('/', function (req, res) {
     res.send('Hello World')
 })
@@ -16,18 +20,22 @@ const client = new vision.ImageAnnotatorClient({
 
 // Performs label detection on the image file
 app.post('/image', upload.single('image'), (req, res, next) => {
-    console.log(req.file);
+   
+  const request = {
+    image: {
+      content: Buffer.from(req.body.requests[0].image.content, 'base64'),
+    }
+  }
     client
-      .labelDetection(req.file.path)
+      .labelDetection(request)
       .then(results => {
         const labels = results[0].labelAnnotations;
-    
-        console.log('Labels:');
-        labels.forEach(label => console.log(label.description));
-      
+        // sending an array of objects containing image.description and image.score
+        res.send(labels);
       })
-      .catch(err => {
-        console.error('ERROR:', err);
+      .catch((err) => {
+        err;
+        //console.error('ERROR:', err);
       });
 })
 
