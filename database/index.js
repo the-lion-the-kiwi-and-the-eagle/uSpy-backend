@@ -22,16 +22,12 @@ const dummyFriendData = require('./dummy-friend-data');
 
 
 const Users = connection.define('users', {
-  name: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
-  username: {
+  email: {
     type: Sequelize.STRING,
     unique: true,
     allowNull: false,
   },
-  email: {
+  password: {
     type: Sequelize.STRING,
     unique: true,
     allowNull: false,
