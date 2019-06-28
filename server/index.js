@@ -17,6 +17,7 @@ app.get('/', function (req, res) {
 })
 
 app.post('/user', (req, res) => {
+  console.log(req);
     const user = req.body;
     console.log(req.body);
     console.log(helpers)
@@ -28,6 +29,18 @@ app.post('/user', (req, res) => {
     //       console.log(err);
     //   });
       })
+
+      app.post('/friend', (req, res) => {
+          const friend = req.body;
+          console.log(req.body);
+          helpers
+            .getUser(friend, user)
+            // .then((friend) => {
+            //     console.log(friend);
+            // }).catch((err) => {
+            //     console.log(err);
+            // });
+            })
 
       app.get('/user', (req, res) => {
         const id = req.body;
@@ -116,7 +129,7 @@ app.post('/image', upload.single('image'), (req, res, next) => {
       });
 })
 
-app.listen(3000, '127.0.0.1', () => {
+app.listen(8080, '127.0.0.1', () => {
     console.log('Server is connected');
 });
 

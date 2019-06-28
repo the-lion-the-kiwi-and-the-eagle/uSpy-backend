@@ -22,15 +22,6 @@ const dummyFriendData = require('./dummy-friend-data');
 
 
 const Users = connection.define('users', {
-  name: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
-  username: {
-    type: Sequelize.STRING,
-    unique: true,
-    allowNull: false,
-  },
   email: {
     type: Sequelize.STRING,
     unique: true,
@@ -43,10 +34,10 @@ const Users = connection.define('users', {
  */
 
 const Friends = connection.define('friends', {
-    user_id: {
-        type: Sequelize.INTEGER,
-        references: { model: 'users', key: 'id' },
-      },
+    // user_id: {
+    //     type: Sequelize.INTEGER,
+    //     references: { model: 'users', key: 'id' },
+    //   },
       friend_id: {
         type: Sequelize.INTEGER,
         references: { model: 'users', key: 'id' },
