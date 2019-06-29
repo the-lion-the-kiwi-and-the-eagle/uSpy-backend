@@ -1,4 +1,5 @@
 const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 const { Users, Friends, Scoreboard } = require('./index');
 
 
@@ -11,11 +12,10 @@ const saveScore = score => {
 }
 
 const getUser = (friend, user) => {
-  return Users.findAll({ where: { email: friend.email } })
-  //[Op.or]: [{email: friend.email}, {email: user.email}]
+  return Users.findAll({ where: { [Op.or]: [{email: friend}, {email: user}] } })
   .then(user => {
-    console.log(user[0].id)
-    addFriends({friend_id: user[0].id});
+    console.log(user[0], user[1], user)
+    addFriends({user_id: user[0].id, friend_id: user[1].id});
   })
 }
 

@@ -29,16 +29,17 @@ app.post('/user', (req, res) => {
     console.log(helpers)
     helpers
       .saveUser(user)
-      .then((savedUser) => {
-          res.send(savedUser)
-      }).catch((err) => {
-          console.log(err);
-      });
+      // .then((savedUser) => {
+      //     res.send(savedUser)
+      // }).catch((err) => {
+      //     console.log(err);
+      // });
       })
 
       app.post('/friend', (req, res) => {
-          const friend = req.body;
-          console.log(req.body);
+          const friend = req.body.friendEmail;
+          const user = req.body.userEmail;
+          console.log(req.body.friendEmail);
           helpers
             .getUser(friend, user)
             // .then((friend) => {
@@ -87,17 +88,17 @@ app.post('/user', (req, res) => {
               });
               })
 
-              app.post('/friends', (req, res) => {
+              app.post('/friend', (req, res) => {
                 const friend = req.body;
                 console.log(req.body);
                 helpers
-                  .addFriends(friend)
-                  .then((savedScore) => {
-                      console.log(savedScore);
-                  }).catch((err) => {
-                      console.log(err);
-                  });
-                  })
+                  .getUser(friend, user)
+                  // .then((friend) => {
+                  //     console.log(friend);
+                  // }).catch((err) => {
+                  //     console.log(err);
+                  // });
+                  })      
               
            app.get('/friends', (req, res) => {
             const user = req.body;
