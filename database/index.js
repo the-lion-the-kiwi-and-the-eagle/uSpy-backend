@@ -26,6 +26,11 @@ const Users = connection.define('users', {
     type: Sequelize.STRING,
     unique: true,
     allowNull: false,
+  },
+  password: {
+    type: Sequelize.STRING,
+    unique: true,
+    allowNull: false,
   }
 });
 /**
@@ -34,10 +39,10 @@ const Users = connection.define('users', {
  */
 
 const Friends = connection.define('friends', {
-    // user_id: {
-    //     type: Sequelize.INTEGER,
-    //     references: { model: 'users', key: 'id' },
-    //   },
+    user_id: {
+        type: Sequelize.INTEGER,
+        references: { model: 'users', key: 'id' },
+      },
       friend_id: {
         type: Sequelize.INTEGER,
         references: { model: 'users', key: 'id' },
@@ -62,7 +67,7 @@ const Scoreboard = connection.define('scoreboard', {
 connection.sync({ force: false })
   .then((result) => {
     console.log(result, 'connected to', database);
-    // Friends.bulkCreate(dummyFriendData)
+    Users.bulkCreate(dummyUserData)
     // .then(user => {
     //   console.log(user.dataValues);
     // }

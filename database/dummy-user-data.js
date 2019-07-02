@@ -9,6 +9,12 @@ module.exports = [
       profilePicURL: 'https://pbs.twimg.com/profile_images/423994086387769345/LME5ldQY.jpeg' 
     },
     {
+      id: 30, 
+      name: "kal",
+      email: "kalkidanmulatu2@gmail.com",
+      password: "password"
+    },
+    {
       id: 43,
       name: 'Kelly',
       username: 'KellyT',

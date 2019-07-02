@@ -30,12 +30,17 @@ app.post('/user', (req, res) => {
     console.log(helpers)
     helpers
       .saveUser(user)
-     
+      // .then((savedUser) => {
+      //     res.send(savedUser)
+      // }).catch((err) => {
+      //     console.log(err);
+      // });
       })
 
       app.post('/friend', (req, res) => {
-          const friend = req.body;
-          console.log(req.body);
+          const friend = req.body.friendEmail;
+          const user = req.body.userEmail;
+          console.log(req.body.friendEmail);
           helpers
             .getUser(friend, user)
             // .then((friend) => {
@@ -44,6 +49,19 @@ app.post('/user', (req, res) => {
             //     console.log(err);
             // });
             })
+
+            app.post('/friends', (req, res) => {
+              const userEmail = req.body.friendEmail;
+              const user = req.body.userEmail;
+              console.log(req.body.friendEmail);
+              helpers
+                .getUserId(userEmail)
+                // .then((friend) => {
+                //     console.log(friend);
+                // }).catch((err) => {
+                //     console.log(err);
+                // });
+                })
 
       app.get('/user', (req, res) => {
         const id = req.body;
@@ -84,17 +102,17 @@ app.post('/user', (req, res) => {
               });
               })
 
-              app.post('/friends', (req, res) => {
+              app.post('/friend', (req, res) => {
                 const friend = req.body;
                 console.log(req.body);
                 helpers
-                  .addFriends(friend)
-                  .then((savedScore) => {
-                      console.log(savedScore);
-                  }).catch((err) => {
-                      console.log(err);
-                  });
-                  })
+                  .getUser(friend, user)
+                  // .then((friend) => {
+                  //     console.log(friend);
+                  // }).catch((err) => {
+                  //     console.log(err);
+                  // });
+                  })      
               
            app.get('/friends', (req, res) => {
             const user = req.body;
@@ -141,7 +159,6 @@ let socketIds = {};
 // contains all rooms created by host user i.e games['sam@sam.com'] = {gameName: 'Sam'}
 let games = {};
 
-<<<<<<< HEAD
 io.on('connection', (socket) => {
   console.log('user connected to socket', socket.id);
   
@@ -209,9 +226,7 @@ io.on('connection', (socket) => {
 });
 
 server.listen(8080, '127.0.0.1', () => {
-=======
 app.listen(8080, '127.0.0.1', () => {
->>>>>>> 00e959e34773f55d1e665f5dff06a2df5a48ec1a
     console.log('Server is connected');
 });
 
