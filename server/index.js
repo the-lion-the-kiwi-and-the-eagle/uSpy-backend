@@ -49,6 +49,19 @@ app.post('/user', (req, res) => {
             // });
             })
 
+            app.post('/friends', (req, res) => {
+              const userEmail = req.body.friendEmail;
+              const user = req.body.userEmail;
+              console.log(req.body.friendEmail);
+              helpers
+                .getUserId(userEmail)
+                // .then((friend) => {
+                //     console.log(friend);
+                // }).catch((err) => {
+                //     console.log(err);
+                // });
+                })
+
       app.get('/user', (req, res) => {
         const id = req.body;
         console.log(req.body.id);

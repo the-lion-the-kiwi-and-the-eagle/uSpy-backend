@@ -18,7 +18,12 @@ const getUser = (friend, user) => {
     addFriends({user_id: user[0].id, friend_id: user[1].id});
   })
 }
-
+const getUserId = (userEmail) => {
+  return Users.findAll({ where: {email: userEmail}})
+  .then((user) => {
+    console.log(user);
+  })
+}
 const getScore = userId => {
   return Scoreboard.findAll({ where: { user_id: userId} })
 }
@@ -30,4 +35,4 @@ const getFriends = userId => {
   return Friends.findAll({ where: { user_id: userId.user_id} })
 }
 
-module.exports = { saveUser, getUser, saveScore, getScore, addFriends, getFriends };
+module.exports = { saveUser, getUser, saveScore, getScore, addFriends, getFriends, getUserId };
