@@ -10,9 +10,13 @@ const saveScore = score => {
   Scoreboard.create(score);
 }
 
-const getUser = user => {
-  return Users.findAll({ where: { id: user.id } })
-  .then(results => ({ user, allUsers: results }));
+const getUser = (friend, user) => {
+  return Users.findAll({ where: { email: friend.email } })
+  //[Op.or]: [{email: friend.email}, {email: user.email}]
+  .then(user => {
+    console.log(user[0].id)
+    addFriends({friend_id: user[0].id});
+  })
 }
 
 const getScore = userId => {
